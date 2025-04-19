@@ -69,6 +69,17 @@ OPENAI_BASE_URL=http://host.docker.internal:11434/v1
 OPENAI_API_KEY=ollama
 ```
 
+同时需要在之前的`apps\api\.env`文件中配置
+
+```bash
+# 配置 Ollama 服务器的基础 URL
+# 由于我们从容器中访问主机上的 Ollama，所以需要使用 `host.docker.internal`
+OPENAI_BASE_URL=http://host.docker.internal:11434/v1
+
+# API 密钥是必需的但不会被使用，所以我们只需设置一个虚拟值
+OPENAI_API_KEY=ollama
+```
+
 ::: tip
 在这种情况下，我们假设您在同一台主机上运行 Refly 和 Ollama。如果您在远程机器上运行 Ollama，则需要将 `host.docker.internal` 替换为远程机器的 IP 地址。
 :::
